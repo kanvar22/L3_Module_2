@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Encrypted {
 public static void main(String[] args) {
-	String question = JOptionPane.showInputDialog(null, "Name somethingthat has a even number of letters.");
+	String question = JOptionPane.showInputDialog(null, "Name something that has a even number of letters.");
 	String a = question.substring(0, question.length()/2);
 	String b = question.substring(question.length()/2, question.length());
 	String s = b + a;
@@ -22,7 +22,7 @@ public static void main(String[] args) {
 		      (e.g. FileWriter fw = new FileWriter("src/intro_to_file_io/test2.txt", true);)
 		*/
 		
-		fw.write("\n " + s);
+		fw.write("\n" + s);
 			
 		fw.close();
 	} catch (IOException e) {
@@ -39,3 +39,5 @@ public static void main(String[] args) {
 }
 }
 
+
+ //Copyright © 2017 by Kanvar Soin

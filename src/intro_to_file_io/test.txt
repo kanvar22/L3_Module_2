@@ -1,3 +1,5 @@
 "This is a test file"
 "This is some text"
 "Here is some more text"
+ (e.g. //Copyright © 2017 by Bill Jobs)
+ //Copyright © 2017 by Kanvar Soin
