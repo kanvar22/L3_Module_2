@@ -30,7 +30,7 @@ public class IntroToFileIO {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/test.txt"));
 			
-			String line = br.readLine();
+			String  line = br.readLine();
 			while(line != null){
 				System.out.println(line);
 				line = br.readLine();
