@@ -19,6 +19,8 @@ public class ToDoListTracker implements ActionListener{
 	JButton RemoveTask = new JButton();
 	JButton Save = new JButton();
 	JButton Load = new JButton();
+	String toDo;
+	FileWriter fw;
 	ArrayList<String> toDoList = new ArrayList<String>();
 	public ToDoListTracker () {
 		
@@ -38,11 +40,12 @@ public class ToDoListTracker implements ActionListener{
 		AddTask.addActionListener(this);
 		frame.setVisible(true);
 		
+
+		
 	}
 	
 public static void main(String[] args) {
 ToDoListTracker tracker = new ToDoListTracker();
-
 
 
 }
@@ -61,22 +64,31 @@ public void actionPerformed(ActionEvent e) {
 		int index1 = Integer.parseInt(indexq);
 		toDoList.remove(index1);
 	}
+	
 	if (e.getSource().equals(Save)) {
 		try {
-			FileWriter fw = new FileWriter("src/intro_to_file_io/test2.txt");
+			FileWriter fw = new FileWriter("src/intro_to_file_io/text3");
 			for (int i = 0; i < toDoList.size(); i++) {
-				
-				fw.write("\n" + toDoList.get(i));
+			fw.write("\n " + toDoList.get(i));
 			}
-				
 			fw.close();
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+
+			}
+	if (e.getSource().equals(Load)) {
+		toDoList.clear();
+		
+		if (toDoList.isEmpty()) {
+			System.out.println("404!Arraylist Cannot Be Found!");
+		}
+	}			
+}
+
 		
 	}
-}
-}
+
 
 
 
