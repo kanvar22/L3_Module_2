@@ -2,6 +2,9 @@ package intro_to_file_io;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +58,7 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	if (e.getSource().equals(AddTask)) {
 		String toDo = JOptionPane.showInputDialog("What would you like to add to your to-do list?");
-		System.out.println("hi");
+		System.out.println("" + toDo);
 		toDoList.add("" + toDo);
 	}
 	
@@ -67,27 +70,41 @@ public void actionPerformed(ActionEvent e) {
 	
 	if (e.getSource().equals(Save)) {
 		try {
-			FileWriter fw = new FileWriter("src/intro_to_file_io/text3");
+			FileWriter fw = new FileWriter("src/intro_to_file_io/test2.txt");
 			for (int i = 0; i < toDoList.size(); i++) {
-			fw.write("\n " + toDoList.get(i));
+			fw.write(" " + toDoList.get(i));
 			}
 			fw.close();
-		} catch (IOException ex) {
+		}
+		catch (IOException ex) {
 			ex.printStackTrace();
 		}
 
 			}
 	if (e.getSource().equals(Load)) {
-		toDoList.clear();
-		
-		if (toDoList.isEmpty()) {
-			System.out.println("404!Arraylist Cannot Be Found!");
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/test.txt"));
+			
+			String  line = br.readLine();
+			while(line != null){
+				System.out.println(line);
+				line = br.readLine();
+			}
+			
+			br.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}			
-}
 
 		
 	}
+}
+}
+	
 
 
 
