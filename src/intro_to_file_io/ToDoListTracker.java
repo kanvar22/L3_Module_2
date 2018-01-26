@@ -22,6 +22,7 @@ public class ToDoListTracker implements ActionListener{
 	JButton RemoveTask = new JButton();
 	JButton Save = new JButton();
 	JButton Load = new JButton();
+	String line;
 	String toDo;
 	FileWriter fw;
 	ArrayList<String> toDoList = new ArrayList<String>();
@@ -68,6 +69,36 @@ public void actionPerformed(ActionEvent e) {
 		toDoList.remove(index1);
 	}
 	
+	if (e.getSource().equals(Load)) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/test.txt"));
+			toDoList.clear();
+			String  line = br.readLine();
+			while(line != null){
+				
+				line = br.readLine();
+				
+				toDoList.add("" + line);
+				
+			}
+	
+			br.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			
+			
+			e1.printStackTrace();
+			
+			
+			
+		} catch (IOException k) {
+			// TODO Auto-generated catch block
+			k.printStackTrace();
+		}
+
+		
+	}
+	
 	if (e.getSource().equals(Save)) {
 		try {
 			FileWriter fw = new FileWriter("src/intro_to_file_io/test2.txt");
@@ -81,35 +112,6 @@ public void actionPerformed(ActionEvent e) {
 		}
 
 			}
-	if (e.getSource().equals(Load)) {
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/test.txt"));
-			
-			String  line = br.readLine();
-			while(line != null){
-				System.out.println(line);
-				line = br.readLine();
-			}
-			
-			br.close();
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-		
-	}
 }
 }
-	
-
-
-
-
-
-
-
-
